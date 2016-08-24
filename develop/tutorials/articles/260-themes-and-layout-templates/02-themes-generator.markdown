@@ -35,51 +35,32 @@ them:
 
     The resulting output should look similar to this:
 
-        v4.2.2
+        v4.5.0
 
     Note: To avoid any potential compatibility issues, we recommend installing
     the Long Term Support (LTS) version of Node.js--at the time of this writing,
-    the LTS version is v4.2.2.
+    the LTS version is v4.5.0.
 
-    Node Package Manager (NPM) is installed along with Node.js. 
+2.  Update NPM 
 
-2.  Setup your npm environment. 
+    Node Package Manager (NPM) is installed along with Node.js, but it is usually
+    not the latest version. You can verify and update it with these commands:
 
-    First, create an `.npmrc` file in your user's home directory. This helps
-    you bypass npm permission-related issues. 
-
-    In the `.npmrc` file, specify a `prefix` property like this one:
-
-        prefix=/Users/[username]/.npm-packages
-
-    Set the `prefix` value based on your user's home directory. The location you
-    specify is where global npm packages are to be installed.
-
-    Next, set Node.js `NPM_PACKAGES` and `NODE_PATH` system environment 
-    variables with values like these based on the `prefix` value you just 
-    specified.
-
-        NPM_PACKAGES=/Users/[username]/.npm-packages (same as prefix value)
-        NODE_PATH=${NODE_PATH}:${NPM_PACKAGES}/lib/node_modules
-
-    As a last npm configuration, since npm installs Yeoman and gulp executables
-    to `${NPM_PACKAGES}/bin` on UNIX and to `%NPM_PACKAGES%` on Windows, make
-    sure to add the appropriate directory to your system path. For example, on
-    UNIX you'd set this:
-
-        PATH=${PATH}:${NPM_PACKAGES}/bin
+        sudo npm ls -g --depth=0
+        sudo npm update npm
+        sudo npm ls -g --depth=0
 
 3.  Install [Yeoman](http://yeoman.io/) and [gulp](https://www.npmjs.com/package/gulp)
     globally by executing the following command:
 
-        npm install -g yo gulp
+        sudo npm install -g yo gulp
 
 You've completed installing the Themes Generator's dependencies.
 
 Now you're ready to install the Themes Generator. Install it by executing this
-command:
+command (ignore complains about yo and gulp versions, it's an obvious bug):
 
-    npm install -g generator-liferay-theme
+        sudo npm install -g generator-liferay-theme
 
 If you are on Windows, you must do additional setup for generated themes to use
 Sass. 
